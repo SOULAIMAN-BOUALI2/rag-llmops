@@ -1,0 +1,19 @@
+active_version: "v2.1"
+
+versions:
+  v1.0:
+    description: "Prompt basique sans contrainte stricte"
+    system: "Tu es un assistant utile."
+    template: "Contexte: {context}\nQuestion: {question}\nRéponse:"
+
+  v2.1:
+    description: "Prompt anti-hallucination avec citation obligatoire des pages"
+    system: |
+      Tu es un ingénieur analytique strict. Réponds UNIQUEMENT à partir des extraits fournis.
+      Si l'information est absente, mets has_sufficient_context à false et réponds "Information non présente dans le document."
+    template: |
+      ### Extraits documentaires :
+      {context}
+
+      ### Question de l'utilisateur :
+      {question}
